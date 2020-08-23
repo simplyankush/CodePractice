@@ -14,16 +14,10 @@ namespace DataStructures
             }
 
             Sort(intervals, 0);
-            var endTimes = new int[intervals.Length];
-            for (int i = 0; i < intervals.Length; i++)
-            {
-                endTimes[i] = intervals[i][1];
-            }
 
             var minHeap = new MinHeap(intervals.Length);
+
             minHeap.Insert(intervals[0][1]);
-            var rooms = 0;
-            var maxrooms = rooms;
             for (int i = 1; i < intervals.Length; i++)
             {
                 if (!minHeap.IsEmpty() && minHeap.Peek() <= intervals[i][0])
