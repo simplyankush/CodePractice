@@ -52,8 +52,44 @@ namespace DataStructures
             return newArray;
         }
 
+        public static int PivotIndex(int[] arr)
+        {
+            int left = 0;
+            int right = arr.Length - 1;
+
+            if (arr[left] < arr[right])
+            {
+                return 0;
+            }
+
+            while (left <= right)
+            {
+
+                var pivot = (left + right) / 2;
+
+                if (arr[pivot] > arr[pivot + 1])
+                {
+                    return pivot;
+                }
+                else if (arr[pivot] < arr[left])
+                {
+                    left = pivot + 1;
+                }
+                else
+                {
+                    right = pivot - 1;
+                }
+            }
+
+            return 0;
+
+        }
+
         public static void Main(string[] args)
         {
+
+            Console.WriteLine(PivotIndex(new int[] { 4, 5, 6, 7, 0, 1, 2 }));
+
             int[] arr = new int[] { 1, 2, 3, 4, 5, 6, 7 };
             PrintArray(arr);
             arr = rightRotateArray(arr, 2, arr.Length);
