@@ -6,6 +6,25 @@ namespace DataStructures
 {
     public class CriticalConnections1192
     {
+        /**
+         * DFS with lowValues and identitiers
+         * Convert connections to adjacency lists
+         * every node should be assigned an identifier and a lowValue during DFS.
+         * initial lowValue = identifier. 
+         * 
+         * DFS requires info about parentNode.
+         * for each neighbor
+         *    if neighbor is parent, do nothing
+         *    
+         *    if neighbor is not visited, do dfs(neighbor, current)
+         *    
+         *    if lowValue of neighbor < lowValue of current, lowValue of current = lowValue of neighbor
+         * 
+         *    in the end if there is any node whose identifier < lowValue of neighbor, identifier-neighbor is a critical path.
+         * 
+         * */
+
+
         bool[] visited;
         List<List<int>> adjList;
         int[] identifiers;
