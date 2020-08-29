@@ -10,6 +10,22 @@ namespace DataStructures
       Output: [[1,6],[8,10],[15,18]]
       Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].
      * 
+     * Sort the intervals in order of Start times.
+     * now only consecutive intervals with overlap
+     * two consecutive intervals overlap only if the start time of the second is before the end time of the first
+     *  
+     * Push the first interval onto the stack
+     * for each interval from 1: n
+     *    check stack.peek() 
+     *    
+     *    if stack.Peek().End > interval[i].Start
+     *        var prev = stack.Pop()
+     *        merge(prev, interval[i])
+     *    
+     *    else
+     *        stack.Push(interval)
+     *   
+     * 
      **/
 
 
